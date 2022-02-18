@@ -9,7 +9,7 @@ namespace EF_DbFirst_LINQ
     {
         static void Main()
         {
-            using (var db = new host1323541_sbd06Context())
+            using (var db = new host1323541_sbd06Context()) 
             {
                 var countriesInfo = from Capital in db.TabCapitals
                                     join Country in db.TabCountries on Capital.Id equals Country.CapitalId
@@ -73,6 +73,22 @@ namespace EF_DbFirst_LINQ
                                                 select Country.Name;
                 Console.WriteLine($"Страны c площадью более 300000: {string.Join(",", сountriesWithAreaMoreThen)}");
                 Console.WriteLine();
+
+            };
+            using (var db = new host1323541_sbd06Context())
+            {
+                var capitalsWith_a_and_i = from Capital in db.TabCapitals
+                                           where (Capital.Name.Contains("a") && Capital.Name.Contains("i"))
+                                           select Capital.Name;
+                
+
+                Console.WriteLine($"Столицы, у которых в названии есть буквы a, i: {string.Join(",", capitalsWith_a_and_i)}");
+                Console.WriteLine();
+
+               
+
+
+
 
             };
         }
