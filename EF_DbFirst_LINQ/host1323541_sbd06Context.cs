@@ -7,19 +7,19 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EF_DbFirst_LINQ
 {
-    public partial class СountriesContext : DbContext
+    public partial class host1323541_sbd06Context : DbContext
     {
         public static string connectionStringFile => "/ConnectionString.txt";
-        public СountriesContext()
+        public host1323541_sbd06Context()
         {
         }
 
-        public СountriesContext(DbContextOptions<СountriesContext> options)
+        public host1323541_sbd06Context(DbContextOptions<host1323541_sbd06Context> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<TabCapital> TabCapitals { get; set; }
+        public virtual DbSet<TabCapitals> TabCapitals { get; set; }
         public virtual DbSet<TabCity> TabCities { get; set; }
         public virtual DbSet<TabCountry> TabCountries { get; set; }
 
@@ -39,7 +39,7 @@ namespace EF_DbFirst_LINQ
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TabCapital>(entity =>
+            modelBuilder.Entity<TabCapitals>(entity =>
             {
                 entity.ToTable("tab_capitals");
 

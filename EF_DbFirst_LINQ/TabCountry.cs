@@ -19,7 +19,7 @@ namespace EF_DbFirst_LINQ
         public double Area { get; set; }
         public string PartOfTheWorld { get; set; }
 
-        public virtual TabCapital Capital { get; set; }
+        public virtual TabCapitals Capital { get; set; }
         public virtual ICollection<TabCity> TabCities { get; set; }
     }
 }

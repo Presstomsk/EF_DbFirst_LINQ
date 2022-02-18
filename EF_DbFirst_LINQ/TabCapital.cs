@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace EF_DbFirst_LINQ
 {
-    public partial class TabCapital
+    public partial class TabCapitals
     {
-        public TabCapital()
+        public TabCapitals()
         {
             TabCountries = new HashSet<TabCountry>();
         }
