@@ -6,7 +6,7 @@ namespace EF_DbFirst_LINQ
     {
         static void Main()
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
