@@ -1,5 +1,17 @@
 # EF_DbFirst_LINQ
 
+Тестовая база данных MySQL по ссылке https://github.com/Presstomsk/EF_DbFirst_LINQ/tree/master/EF_DbFirst_LINQ/Db_Information 
+
+Для работы с существующей БД нам надо добавить два пакета:
+![изображение](https://user-images.githubusercontent.com/77540319/154790010-1e4b7d69-0d2e-40e4-9f79-05ca22674ac5.png)
+
+Первый представляет функциональность Entity Framework для работы с MySQL.
+Второй необходим для создания классов по базе данных, то есть reverse engineering.
+
+Для реверса базы данных и создания по ней классов C# в Visual Studio в окне Package Manager Console выполняется следующая команда:
+
+■ Scaffold-DbContext "строка подключения" провайдер_бд
+
 Задание 1
 
 Проведите нормализацию базу данных «Страны».
