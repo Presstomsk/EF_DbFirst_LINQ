@@ -85,12 +85,14 @@ namespace EF_DbFirst_LINQ
                 Console.WriteLine($"Столицы, у которых в названии есть буквы a, i: {string.Join(",", capitalsWith_a_and_i)}");
                 Console.WriteLine();
 
-               //var capitalsStartWith_k = db.TabCapitals.Where(Capital => Capital.Name.StartsWith("k")).Select(Capital => Capital.Name);   //TO DO                                       
-                                          
+             /*  var capitalsStartWith_k = from Capital in db.TabCapitals
+                                         where Capital.Name.StartsWith('k')
+                                         select Capital.Name;   //TO DO                  
+                                      
 
 
-               // Console.WriteLine($"Столицы, у которых название начи­нается с буквы k: {string.Join(",", capitalsStartWith_k)}");
-               // Console.WriteLine();
+               Console.WriteLine($"Столицы, у которых название начи­нается с буквы k: {string.Join(",", capitalsStartWith_k)}");
+               Console.WriteLine();*/
 
 
                 var areaCoutry = from Country in db.TabCountries
