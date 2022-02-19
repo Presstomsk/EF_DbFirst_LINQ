@@ -1,6 +1,6 @@
 # EF_DbFirst_LINQ
 
-***Тестовая база данных MySQL по ссылке https://github.com/Presstomsk/EF_DbFirst_LINQ/tree/master/EF_DbFirst_LINQ/Db_Information 
+***Тестовая база данных MySQL по ссылке https://github.com/Presstomsk/EF_DbFirst_LINQ/tree/master/EF_DbFirst_LINQ/Db_Information***
 
 ***Для работы с существующей БД нам надо добавить два пакета:
 ![изображение](https://user-images.githubusercontent.com/77540319/154790010-1e4b7d69-0d2e-40e4-9f79-05ca22674ac5.png)
