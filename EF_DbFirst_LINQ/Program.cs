@@ -85,10 +85,96 @@ namespace EF_DbFirst_LINQ
                 Console.WriteLine($"Столицы, у которых в названии есть буквы a, i: {string.Join(",", capitalsWith_a_and_i)}");
                 Console.WriteLine();
 
-               
+               //var capitalsStartWith_k = db.TabCapitals.Where(Capital => Capital.Name.StartsWith("k")).Select(Capital => Capital.Name);   //TO DO                                       
+                                          
 
 
+               // Console.WriteLine($"Столицы, у которых название начи­нается с буквы k: {string.Join(",", capitalsStartWith_k)}");
+               // Console.WriteLine();
 
+
+                var areaCoutry = from Country in db.TabCountries
+                                 where Country.Area > 500000 && Country.Area < 3000000
+                                 select Country.Name;
+
+                Console.WriteLine($"Страны, у которых площадь находится в указанном диапазоне: {string.Join(",", areaCoutry)}");
+                Console.WriteLine();
+
+                var populationCoutry = from Country in db.TabCountries
+                                       where Country.Population >15000000
+                                       select Country.Name;
+
+                Console.WriteLine($"Страны, у которых количество жителей больше указанного числа: {string.Join(",", populationCoutry)}");
+                Console.WriteLine();
+
+
+            };
+            using (var db = new host1323541_sbd06Context())
+            {
+
+                var topAreaCountries = (from Country in db.TabCountries
+                                   orderby Country.Area descending
+                                   select Country.Name).Take(5);
+
+                Console.WriteLine($"Топ-5 стран по площади: {string.Join(",", topAreaCountries)}");
+                Console.WriteLine();
+
+                var topPopulationCities = (from Capital in db.TabCapitals
+                                              orderby Capital.Population descending
+                                              select Capital.Name).Take(5);
+
+                Console.WriteLine($"Топ-5 столиц по количеству жителей: {string.Join(",", topPopulationCities)}");
+                Console.WriteLine();
+
+                var mostBigAreaCountry = (from Country in db.TabCountries
+                                        orderby Country.Area descending
+                                        select Country.Name).First();
+
+                Console.WriteLine($"Страна с самой большой площадью: {mostBigAreaCountry}");
+                Console.WriteLine();
+
+                var mostBigPopulationCity = (from Capital in db.TabCapitals
+                                             orderby Capital.Population descending
+                                             select Capital.Name).First();
+
+                Console.WriteLine($"Столица с самым большим количеством жителей: {mostBigPopulationCity}");
+                Console.WriteLine();
+
+                var mostSmallAreaEuropeCountry = (from Country in db.TabCountries
+                                                  orderby Country.Area descending
+                                                  select Country.Name).Last();
+
+                Console.WriteLine($"Cтрана с самой маленькой площадью в Европе: {mostSmallAreaEuropeCountry}");
+                Console.WriteLine();
+
+                var middleAreaEuropeCountries = (from Country in db.TabCountries
+                                                 where Country.PartOfTheWorld=="Europe"
+                                                 select Country.Area).Average();
+
+                Console.WriteLine($"Cредняя площадь стран в Европе: {middleAreaEuropeCountries}");
+                Console.WriteLine();
+
+                var allCountries = ((db.TabCountries.
+                    GroupBy(p => p.PartOfTheWorld).
+                    Select(p => new { PartOfTheWorld = p.Key, Count = p.Count() })).
+                    OrderBy(p => p.Count).
+                    Last()).PartOfTheWorld;
+
+                Console.WriteLine($"Часть света с максимальным количеством стран: {allCountries}");
+                Console.WriteLine();
+
+                var Countries = db.TabCountries.
+                    GroupBy(p => p.PartOfTheWorld).
+                    Select(p => new { PartOfTheWorld = p.Key, Count = p.Count() });
+
+                Console.WriteLine("Количество стран в каждой части света:");
+
+                foreach (var item in Countries)
+                {
+                    Console.WriteLine($"{item.PartOfTheWorld} : {item.Count}");
+                }
+                
+                Console.WriteLine();
 
             };
         }
